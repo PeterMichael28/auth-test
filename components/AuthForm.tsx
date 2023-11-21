@@ -1,14 +1,19 @@
 'use client'
 import { Auth } from '@supabase/auth-ui-react'
+import { 
+  useSessionContext, 
+  useSupabaseClient
+} from '@supabase/auth-helpers-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClientComponentClient, Session } from '@supabase/auth-helpers-nextjs'
 import { Database } from '@/types_db'
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function AuthForm({ session }: { session: Session | null}) {
-  const supabase = createClientComponentClient<Database>()
-
+export default function AuthForm() {
+  
+  const { session } = useSessionContext();
+  const supabaseClient = useSupabaseClient();
   const router = useRouter()
 
   useEffect(() => {
@@ -20,7 +25,7 @@ export default function AuthForm({ session }: { session: Session | null}) {
 
   return (
     <Auth
-      supabaseClient={supabase}
+      supabaseClient={supabaseClient}
    
       magicLink={true}
           appearance={ {
@@ -29,15 +34,16 @@ export default function AuthForm({ session }: { session: Session | null}) {
                   default: {
                       colors: {
                           brand: '#404040',
-                          brandAccent: '#22c55e'
+                      brandAccent: '#22c55e',
+                          
                       }
                   }
               }
           } }
       theme="dark"
       
-      providers={['github']}
-      redirectTo="https://auth-test-phi.vercel.app/api/auth/callback"
+      providers={[]}
+      
       
     />
   )

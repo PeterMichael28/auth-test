@@ -8,8 +8,6 @@ import {  toast } from 'react-toastify';
 
 
 
-
-
 export default function AccountForm({ session }: { session: Session }) {
   const supabase = createClientComponentClient<Database>()
   const [loading, setLoading] = useState(true)
