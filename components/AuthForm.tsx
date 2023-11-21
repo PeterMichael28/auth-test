@@ -26,7 +26,7 @@ export default function AuthForm() {
       theme="dark"
       
       providers={['github']}
-      redirectTo="http://localhost:3000/api/auth/callback"
+      redirectTo="https://auth-test-phi.vercel.app/api/auth/callback"
       
     />
   )
