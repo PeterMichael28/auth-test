@@ -6,7 +6,7 @@ import { Database } from '@/types_db'
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function AuthForm({ session }: { session: Session }) {
+export default function AuthForm({ session }: { session: Session | null}) {
   const supabase = createClientComponentClient<Database>()
 
   const router = useRouter()
