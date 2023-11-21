@@ -17,7 +17,7 @@ export default async function Home() {
  return (
   <main className="max-w-lg mx-auto pt-20 ">
    <div className="w-full shadow-lg p-6">
-    <AuthForm />
+    <AuthForm session={session}/>
    </div>
   </main>
  );

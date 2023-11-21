@@ -43,7 +43,7 @@ body,
   }
 
   input {
-    @apply w-full rounded-md border border-[#333] p-2 text-sm bg-[#101010] text-[#fff] disabled:text-[#666]
+    @apply w-full rounded-md border border-[#333] p-2 text-sm bg-[#101010] text-white disabled:text-[#666]
   }
 
   .button {
