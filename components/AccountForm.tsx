@@ -10,7 +10,7 @@ import {  toast } from 'react-toastify';
 
 
 
-export default function AccountForm({ session }: { session: Session | null }) {
+export default function AccountForm({ session }: { session: Session }) {
   const supabase = createClientComponentClient<Database>()
   const [loading, setLoading] = useState(true)
   const [fullname, setFullname] = useState<string | null>(null)
@@ -26,7 +26,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
       const { data, error, status } = await supabase
         .from('profiles')
         .select(`full_name, username, website, avatar_url`)
-        .eq('id', user?.id)
+        .eq('id', user.id)
         .single()
 
       if (error && status !== 406) {
